@@ -27,13 +27,12 @@
     <header class="site-header" aria-label="Primary navigation">
     <a class="brand" href="./index.html#page" aria-label="Sweet Georgia Brown home">
       <picture>
-        <source media="(max-width: 680px)" srcset="assets/images/logo-mobile.jpg">
         <img src="assets/images/logo-desktop.png" alt="Sweet Georgia Brown">
       </picture>
     </a>
 
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-      <span>Menu</span>
+      <span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span><span class="sr-only">Open menu</span>
     </button>
 
     <nav id="site-menu" class="site-nav">
@@ -54,7 +53,7 @@
 
   <main id="page">
     <section class="about-hero" aria-label="About Sweet Georgia Brown">
-      <video class="about-bg-video" autoplay muted loop playsinline poster="assets/images/sgb-sign-transparent.png">
+      <video class="about-bg-video" autoplay muted loop playsinline>
         <source src="assets/about-background.mp4" type="video/mp4">
       </video>
       <div class="about-bg-fallback" aria-hidden="true"></div>
