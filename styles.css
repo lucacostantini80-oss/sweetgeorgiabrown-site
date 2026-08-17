@@ -1895,3 +1895,13 @@ body.gallery-page {
   .contact-panel { min-height: max-content; }
 }
 
+
+/* Stable mobile Hero layout across viewport heights */
+@media (max-width: 620px) {
+  .hero { min-height: calc(100svh - 78px); padding: 0 16px 18px; place-items: end center; }
+  .hero-content { top: auto; right: 50%; bottom: 18px; transform: translateX(50%); width: min(620px, calc(100% - 32px)); }
+  .hero h1, .hero p:not(.release-note) { transform: none; }
+  .hero .button-primary { margin-top: 36px; margin-bottom: 0; }
+  .hero .release-note { margin-top: 8px; }
+}
+
