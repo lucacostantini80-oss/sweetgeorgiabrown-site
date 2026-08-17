@@ -1888,3 +1888,10 @@ body.gallery-page {
   .hero .button-primary { margin-top: 104px; margin-bottom: 12px; }
 }
 
+
+/* Mobile contact dialog keeps the calendar scrollable */
+@media (max-width: 620px) {
+  .contact-dialog { max-height: calc(100dvh - 16px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+  .contact-panel { min-height: max-content; }
+}
+
