@@ -325,10 +325,36 @@ h3 {
 .quote-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  background: var(--white);
+  filter: grayscale(.18) saturate(.72);
+}
+
+/* Keep the whole portrait visible as the browser grows; soften the side fill. */
+.quote-bg::before,
+.quote-bg::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.quote-bg::before {
+  inset: -32px;
+  background: url("assets/images/quote-background.jpg") center / cover;
+  filter: blur(32px);
+  opacity: .16;
+}
+
+.quote-bg::after {
+  top: 0;
+  left: 50%;
+  height: 100%;
+  aspect-ratio: 750 / 493;
+  transform: translateX(-50%);
   background:
     linear-gradient(rgba(243, 237, 229, .58), rgba(243, 237, 229, .82)),
     url("assets/images/quote-background.jpg") center / cover;
-  filter: grayscale(.18) saturate(.72);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
 }
 
 blockquote {
@@ -1476,10 +1502,10 @@ body.press-page .site-nav a[aria-current="page"] { text-decoration: underline; t
   min-height: 68svh;
 }
 .wave-quote-top {
-  height: clamp(120px, 13vw, 205px);
+  height: 120px;
 }
 .wave-quote-bottom {
-  height: clamp(88px, 10vw, 150px);
+  height: 88px;
 }
 .quote .section-inner {
   transform: translate(-2.5%, 60%);
@@ -1490,6 +1516,18 @@ body.press-page .site-nav a[aria-current="page"] { text-decoration: underline; t
   }
   .quote .section-inner {
     transform: translate(-1%, 44%);
+  }
+}
+@media (min-width: 681px) {
+  .quote blockquote {
+    font-size: min(3.75vw, 2.5rem);
+  }
+}
+@media (max-width: 680px) {
+  .quote blockquote {
+    width: min(560px, calc(100% - 32px));
+    white-space: normal;
+    line-height: 1.08;
   }
 }
 /* Gallery page */
